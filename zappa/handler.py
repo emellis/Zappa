@@ -511,8 +511,12 @@ def lambda_handler(event, context):  # pragma: no cover
     print('HANDLER INVOKED')
     import traceback
     try:
-        return LambdaHandler.lambda_handler(event, context)
+        response = LambdaHandler.lambda_handler(event, context)
+        print('SUCCESS')
+        traceback.print_exc()
+        return response
     except Exception as ex:
+        print('EXCEPTION')
         print(ex)
         traceback.print_exc()
         raise
