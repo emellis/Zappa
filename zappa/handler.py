@@ -508,7 +508,14 @@ class LambdaHandler(object):
 
 
 def lambda_handler(event, context):  # pragma: no cover
-    return LambdaHandler.lambda_handler(event, context)
+    print('HANDLER INVOKED')
+    import traceback
+    try:
+        return LambdaHandler.lambda_handler(event, context)
+    except Exception as ex:
+        print(ex)
+        traceback.print_exc()
+        raise
 
 
 def keep_warm_callback(event, context):
