@@ -1,5 +1,12 @@
-from cgi import parse_qs, escape
+import sys
 from zappa.asynchronous import task
+
+if sys.version_info[0] == 2:
+    from cgi import parse_qs, escape
+else:
+    # Importing these from cgi was deprecated in python 3.2 and fully removed in python 3.8
+    from urllib.parse import parse_qs
+    from html import escape
 
 
 def hello_world(environ, start_response):

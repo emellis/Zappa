@@ -86,5 +86,8 @@ zappa_settings.json
 *.sublime-project
 *.sublime-workspace
 
+# Common name for python vertial environments
+venv/
+
 README.test.md
 .vscode
